@@ -1,0 +1,55 @@
+// for
+
+// .col-12{
+//     width:100%;
+// }
+// .col-6{
+//     width: 50%;
+// }
+
+$number: 1;
+
+// 1<= $number < 13
+// @for $number from 1 to 13 {
+//     .col-#{$number}{
+//         width: 100% * $number / 12;
+//     }
+//     $number:$number + 1;
+// }
+
+// 1<= $number <= 12
+// @for $number from 1 through 12{
+//     .col-#{$number}{
+//                 width: 100% * $number / 12;
+//             }
+//             $number:$number + 1;
+// }
+
+@while $number <13 {
+    .col-#{$number} {
+        width: 100% * $number / 12;
+    }
+    $number: $number + 1;
+}
+
+// each
+$icons:("book":"\f2b9","card":"\f2bb");
+
+// .icon-book:before{
+//     content: "\f2b9";
+// }
+
+@each $name, $code in $icons {
+    .icon-#{$name}::before{
+        content: $code;
+    }
+}
+
+$sizes: 40px, 50px, 80px;
+@each $size in $sizes {
+    .icon-#{$size}{
+        font-size: $size;
+        height: $size;
+        width: $size;
+    }
+}
