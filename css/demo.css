@@ -72,4 +72,40 @@
   height: 80px;
   width: 80px;
 }
+
+.up {
+  border-style: solid;
+  border-color: transparent;
+  display: inline-block;
+  border-width: 20px;
+  border-bottom-color: red;
+}
+
+.down {
+  border-style: solid;
+  border-color: transparent;
+  display: inline-block;
+  border-width: 20px;
+  border-top-color: yellow;
+}
+
+.right {
+  border-style: solid;
+  border-color: transparent;
+  display: inline-block;
+  border-width: 20px;
+  border-left-color: blue;
+}
+
+.left {
+  border-style: solid;
+  border-color: transparent;
+  display: inline-block;
+  border-width: 20px;
+  border-right-color: green;
+}
+
+h2 {
+  font-size: 2rem;
+}
 /*# sourceMappingURL=demo.css.map */

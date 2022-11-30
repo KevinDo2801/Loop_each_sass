@@ -33,23 +33,73 @@ $number: 1;
 }
 
 // each
-$icons:("book":"\f2b9","card":"\f2bb");
+$icons: (
+    "book": "\f2b9",
+    "card": "\f2bb",
+);
 
 // .icon-book:before{
 //     content: "\f2b9";
 // }
 
 @each $name, $code in $icons {
-    .icon-#{$name}::before{
+    .icon-#{$name}::before {
         content: $code;
     }
 }
 
 $sizes: 40px, 50px, 80px;
 @each $size in $sizes {
-    .icon-#{$size}{
+    .icon-#{$size} {
         font-size: $size;
         height: $size;
         width: $size;
     }
+}
+
+@mixin arrow($size, $direction, $color) {
+    border-style: solid;
+    border-color: transparent;
+    display: inline-block;
+    border-width: $size;
+
+    @if $direction == up {
+        border-bottom-color: $color;
+    } @else if $direction == down {
+        border-top-color: $color;
+    } @else if $direction == right {
+        border-left-color: $color;
+    } @else if $direction == left {
+        border-right-color: $color;
+    } @else{
+        @error "Unknown direction: #{$direction}.";
+    }
+}
+
+.up {
+    @include arrow(20px,up,red);
+}
+
+
+.down {
+    @include arrow(20px,down,yellow);
+}
+
+.right {
+    @include arrow(20px,right,blue);
+}
+
+.left {
+    @include arrow(20px,left,green);
+}
+
+@function parseRem($default,$val){
+    $rem: $val / $default;
+    @return #{$rem}rem;
+}
+
+// font-size: 32px
+
+h2{
+    font-size: parseRem(16,32);
 }
